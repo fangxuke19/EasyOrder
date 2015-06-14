@@ -1,0 +1,41 @@
+<ion-view view-title="Login">
+    <ion-content ng-controller="LoginCtrl">
+        <div class="list list-inset">
+            <label class="item item-input">
+                <span class="input-label">email</span>
+                <input type="text" ng-model="postData.email">
+            </label>
+            <label class="item item-input">
+                <span class="input-label">Password</span>
+                <input type="password" ng-model="postData.password">
+            </label>
+            <button class="button button-stable button-block" ng-click="login()">login</button>
+            <button class="button button-stable button-block" ng-click="openModal()">register</button>
+        </div>
+    </ion-content>
+</ion-view>
+<script id="Register.html" type="text/ng-template">
+    <div class="modal ">
+        <ion-header-bar>
+            <h1 class="title">Register</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <span class="input-label">email</span>
+                    <input type="text" ng-model="postData.email">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Password</span>
+                    <input type="password" ng-model="postData.password">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Reenter Password</span>
+                    <input type="password" ng-model="postData.password2">
+                </label>
+                <button class="button button-stable button-block" ng-click="register()">register</button>
+                <button class="button button-stable button-block" ng-click="closeModal()">Cancel</button>
+            </div>
+        </ion-content>
+    </div>
+</script>

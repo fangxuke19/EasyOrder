@@ -1,0 +1,112 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="  {{dish.name}}">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-add" ng-click="openModal(3)">
+        </button>
+    </ion-nav-buttons>
+    <ion-content class="padding">
+        <div class="item item-list-detail">
+            <ion-scroll zooming="true" direction="x">
+                <!-- <div style="width: 5000px; height: 5000px; background: url('https://upload.wikimedia.org/wikipedia/commons/a/ad/Europe_geological_map-en.jpg') repeat"></div> -->
+                <img ng-repeat="image_src in dish.image_urls" src="{{serverUrl}}/images/{{image_src}}" style="height:200px; display:inline;"></img>
+            </ion-scroll>
+        </div>
+        <ion-list>
+            <ion-item ng-click='openModal(0)'>
+                Name:
+                <span class="item-note">
+             <h2>{{dish.name}}</h2>
+          </span>
+            </ion-item>
+            <ion-item ng-click='openModal(1)'>
+                price:
+                <span class="item-note">
+             <h2>{{dish.price}}</h2>
+          </span>
+            </ion-item>
+            <ion-item ng-click='openModal(2)'>
+                Descripthon:
+                <div class="item-text-wrap">{{dish.description}}</div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>
+<script id="changeNameModal.html" type="text/ng-template">
+    <div class="modal ">
+        <ion-header-bar>
+            <h1 class="title">Change Name</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div style="padding-left:10px;padding-right:10px;">
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="text" placeholder="new Name" ng-model="newName">
+                    </label>
+                </div>
+                <div class="button-bar ">
+                    <button class="button button-light" ng-click="changeName(newName)">Done</button>
+                    <button class="button button-light" ng-click="closeModal(0)">Cancel</button>
+                </div>
+            </div>
+        </ion-content>
+    </div>
+</script>
+<script id="changePriceModal.html" type="text/ng-template">
+    <div class="modal ">
+        <ion-header-bar>
+            <h1 class="title">Change Price</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div style="padding-left:10px;padding-right:10px;">
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="number" placeholder="new Price" ng-model="newPrice">
+                    </label>
+                </div>
+                <div class="button-bar ">
+                    <button class="button button-light" ng-click="changePrice(newPrice)">Done</button>
+                    <button class="button button-light" ng-click="closeModal(1)">Cancel</button>
+                </div>
+            </div>
+        </ion-content>
+    </div>
+</script>
+<script id="changeDescriptionModal.html" type="text/ng-template">
+    <div class="modal ">
+        <ion-header-bar>
+            <h1 class="title">Change Descripthon</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div style="padding-left:10px;padding-right:10px;">
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <textarea rows="4" placeholder="new Descripthon" ng-model="newDescripthon" />
+                    </label>
+                </div>
+                <div class="button-bar ">
+                    <button class="button button-light" ng-click="changeDescripthon(newDescripthon)">Done</button>
+                    <button class="button button-light" ng-click="closeModal(2)">Cancel</button>
+                </div>
+            </div>
+        </ion-content>
+    </div>
+</script>
+<script id="addPicModal.html" type="text/ng-template">
+    <div class="modal image-modal ">
+        <ion-content>
+            <ion-list style="height:1000;">
+                <ion-item ng-click='showImage()' style="text-align: center;"> View Profile Picture</ion-item>
+                <ion-item ng-click='takePicture()' style="text-align: center;"> Take Photo</ion-item>
+                <ion-item ng-click='choose()' style="text-align: center;" r> Upload Photo</ion-item>
+                <ion-item ng-click='closeModal(3)' style="text-align: center;"> Cancel</ion-item>
+            </ion-list>
+    </div>
+    </ion-content>
+    </ion-modal-view>
+    </div>
+</script>

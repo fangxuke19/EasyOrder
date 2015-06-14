@@ -1,0 +1,88 @@
+<ion-view view-title="Me">
+    <ion-content padding="true" ng-controller="ProfileCtrl">
+        <div id="profile-bg"></div>
+        <div id="content">
+            <div id="profile-info" ng-click='openModal(2)'>
+                <img id="profile-image" ng-src="{{photoUrl}}" imageonload />
+                <h3 id="profile-name">{{user.nickName}}</h3>
+            </div>
+        </div>
+        </div>
+        <ion-list>
+            <ion-item ng-click='openModal(0)'>
+                Name:
+                <div class="post-time">{{user.nickName}}</div>
+            </ion-item>
+            <ion-item ng-click='openModal(1)'>
+                Phone Number:
+                <div class="post-time" ui-mask="{{'(999) 999-9999'}}">{{user.phoneNumber}}</div>
+            </ion-item>
+        </ion-list>
+        </div>
+    </ion-content>
+</ion-view>
+<!-- script for changeNameModal -->
+<script id="changeNameModal.html" type="text/ng-template">
+    <div class="modal ">
+        <ion-header-bar>
+            <h1 class="title">Change Name</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div style="padding-left:10px;padding-right:10px;">
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="text" placeholder="First Name" ng-model="newName">
+                    </label>
+                </div>
+                <div class="button-bar ">
+                    <button class="button button-light" ng-click="finishChangeName(newName)">Done</button>
+                    <button class="button button-light" ng-click="closeModal(0)">Cancel</button>
+                </div>
+            </div>
+        </ion-content>
+    </div>
+</script>
+<!-- script for changePhoneModal -->
+<script id="changePhoneModal.html" type="text/ng-template">
+    <div class="modal">
+        <ion-header-bar>
+            <h1 class="title">Change Phone Number</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div style="padding-left:10px;padding-right:10px;">
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="tel" placeholder="phone number" ng-model="newPhone">
+                    </label>
+                </div>
+                <div class="button-bar ">
+                    <button class="button button-light" ng-click="finishChangePhone(newPhone)">Done</button>
+                    <button class="button button-light" ng-click="closeModal(1)">Cancel</button>
+                </div>
+            </div>
+        </ion-content>
+    </div>
+</script>
+<!-- script for changePicModal -->
+<script id="changePicModal.html" type="text/ng-template">
+    <div class="modal image-modal ">
+        <ion-content>
+            <ion-list style="height:1000;">
+                <ion-item ng-click='showImage()' style="text-align: center;"> View Profile Picture</ion-item>
+                <ion-item ng-click='takePicture()' style="text-align: center;"> Take Photo</ion-item>
+                <ion-item ng-click='choose()' style="text-align: center;"> Upload Photo</ion-item>
+                <ion-item ng-click='closeModal(2)' style="text-align: center;"> Cancel</ion-item>
+            </ion-list>
+    </div>
+    </ion-content>
+    </ion-modal-view>
+    </div>
+</script>
+<!-- script for Show image -->
+<script id="imageModal.html" type="text/ng-template">
+    <div class="modal  fullscreen-image" ng-click="closeModal(3)">
+        <ion-pane class="transparent">
+            <img ng-src="{{photoUrl}}" class="fullscreen-image" />
+        </ion-pane>
+    </div>
+</script>

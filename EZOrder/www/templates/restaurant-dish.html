@@ -1,0 +1,42 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="  {{dish.name}}">
+    <div class="bar bar-subheader item-input-inset">
+        <label class="item-input-wrapper">
+            <input type="text" ng-model="num" placeholder="Quantity">
+        </label>
+        <button class="button button-clear" ng-click="addToCart(dish,num)">
+            Add to Cart
+        </button>
+    </div>
+    <ion-content class="padding has-subheader">
+        <div class="item item-list-detail">
+            <ion-scroll zooming="true" direction="x">
+                <!-- <div style="width: 5000px; height: 5000px; background: url('https://upload.wikimedia.org/wikipedia/commons/a/ad/Europe_geological_map-en.jpg') repeat"></div> -->
+                <img ng-repeat="image_src in dish.image_urls" src="{{serverUrl}}/images/{{image_src}}" style="height:200px; display:inline;"></img>
+            </ion-scroll>
+        </div>
+        <ion-list>
+            <ion-item>
+                Name:
+                <span class="item-note">
+             <h2>{{dish.name}}</h2>
+          </span>
+            </ion-item>
+            <ion-item>
+                price:
+                <span class="item-note">
+             <h2>{{dish.price}}</h2>
+          </span>
+            </ion-item>
+            <ion-item>
+                Descripthon:
+                <div class="item-text-wrap">{{dish.description}}</div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-view>

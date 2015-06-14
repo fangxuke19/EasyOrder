@@ -1,0 +1,27 @@
+<ion-view view-title="Search">
+    <ion-nav-buttons side="right">
+        <button class="button button-clear" ng-click="gotoMap()">
+            Map
+        </button>
+    </ion-nav-buttons>
+    <ion-content ng-controller="SearchCtrl">
+        <div class="list list-inset">
+            <label class="item item-input">
+                <i class="icon ion-search placeholder-icon"></i>
+                <input type="text" placeholder="Search" ng-model="query">
+                <button class="button button-clear">
+                    Search
+                </button>
+            </label>
+            <button class="button button-stable button-block" ng-click="scanBarcode()">Scan</button>
+        </div>
+        <ul class="list">
+            <ion-item class="card" ng-repeat="one in restaurants| filter:query" href="#/tab/restaurant/{{one.id}}">
+                <h2>Restaurant:{{one.name}}</h2>
+                <h2>AverageCost:{{one.price}}</h2>
+                <h2>{{one.description}}</h2>
+            </ion-item>
+        </ul>
+        <h2>{{msg}}</h2>
+    </ion-content>
+</ion-view>ap

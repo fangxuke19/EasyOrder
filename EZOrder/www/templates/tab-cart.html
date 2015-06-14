@@ -1,0 +1,61 @@
+<ion-view view-title="Cart">
+    <ion-content class="padding">
+        <div>
+            <ion-list show-delete="shouldShowDelete" can-swipe="true">
+                <ion-item class="item item-thumbnail-left item" ng-repeat="(key, dish) in cart | filter:query" ng-click="openModal(key)">
+                    <img src="{{serverUrl}}/images/{{dish.image_urls[0]}}">
+                    <h2>Name: {{dish.name}}</h2>
+                    <h2>Unit Price: ${{dish.price}}</h2>
+                    <h2>Quantity: {{dish.num}}</h2>
+                    <h2>Total Price: {{dish.price*dish.num}}
+            <ion-option-button class="button-assertive"
+                             ng-click="delete(key)">
+            Delete
+          </ion-option-button>
+        </ion-item>
+      </ion-list>
+    </div>
+    	<label class="item item-input">
+    <input type="text" placeholder="Table Num" ng-model="Tnum">
+  </label>
+      <button class="button button-stable button-block" ng-click="checkout(Tnum)">checkout</button>
+
+       <ion-list ng-show="showRecent" can-swipe="true">
+      <ion-item class="list card" >
+        
+              <p>
+                  OrderID:{{order.id}}
+              </p>
+              <span class="item-note">
+             <h2>{{order.status}}</h2>
+             </span>
+            <ion-option-button class="button-assertive"
+                             ng-click="deleteRecent()">
+            Complete
+          </ion-option-button>
+          
+        </ion-item>
+         </ion-list>
+  </ion-content>
+</ion-view>
+<!-- script for changeNameModal -->
+<script id="changeQuantityModal.html" type="text/ng-template">
+    <div class="modal ">
+        <ion-header-bar>
+            <h1 class="title">Change Quantity</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div style="padding-left:10px;padding-right:10px;">
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="text" placeholder="Quantity" ng-model="newQuantity">
+                    </label>
+                </div>
+                <div class="button-bar ">
+                    <button class="button button-light" ng-click="finishChangeQuantity(newQuantity)">Done</button>
+                    <button class="button button-light" ng-click="closeModal()">Cancel</button>
+                </div>
+            </div>
+        </ion-content>
+    </div>
+</script>

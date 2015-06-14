@@ -1,0 +1,11 @@
+<ion-view view-title="Cart">
+  <ion-content>
+    <ion-list>
+      <ion-item class="list" ng-repeat="dish in dishes" >
+        <h2>{{dish.name}}</h2>
+        <p>{{dish.num}}</p>
+      </ion-item>
+    </ion-list>
+    <button class= "button button-stable button-block" ng-click="checkout()">checkout</button>
+  </ion-content>
+</ion-view>

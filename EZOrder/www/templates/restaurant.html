@@ -1,0 +1,106 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="  {{restaurant.name}}">
+    <ion-content class="padding">
+        <div class="list card">
+            <div class="item item-icon-left item-divider">
+                <i class="icon ion-compose"></i> Basic Information
+            </div>
+            <div class="item item-icon-left">
+                <i class="icon ion-fork"></i> Name
+                <span class="item-note">
+             <h2>{{restaurant.name}}</h2>
+          </span>
+            </div>
+            <div class="item item-icon-left">
+                <i class="icon ion-cash"></i> Average Cost
+                <span class="item-note">
+             <h2>{{restaurant.price}}</h2>
+          </span>
+            </div>
+            <div class="item item-icon-left">
+                <i class="icon ion-ios-location"></i> Address
+                <span class="item-note">
+             <h2>{{restaurant.address}}</h2>
+          </span>
+            </div>
+        </div>
+        <div class="list card">
+            <div class="item item-icon-left item-divider">
+                <i class="icon ion-compose"></i> Description
+            </div>
+            <div class="item item-body item-text-wrap">
+                <h3>{{restaurant.description}}</h3>
+            </div>
+        </div>
+        <button class="button icon ion-heart custom-icon" style="color: {{color}};" ng-click="addToFavorite()"></button>
+        <div class="list card">
+            <a class="item item-icon-left" href="#tab/menu/{{restaurant.menu}}">
+                <i class="icon ion-load-b"></i> Menu
+            </a>
+        </div>
+          <div class="list card">
+                <a class="item item-icon-left" ng-click='openModal()'>
+                    <i class="icon ion-flag"></i> Make Reservation
+                    <span class="item-note" ng-show="showRDetail">
+                      <h2 >People:{{reservation.people}}</h2>
+                      <h2>Status:{{reservation.status}}</h2>
+                    </span>
+                </a>
+          </div>
+        </p>
+    </ion-content>
+</ion-view>
+
+<script id="Reservation.html" type="text/ng-template">
+    <div class="modal ">
+        <ion-header-bar>
+            <h1 class="title">Reservation</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div style="padding-left:10px;padding-right:10px;">
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="number" placeholder="How many people" ng-model="people" />
+                       
+                    </label>
+                    <label class="item item-input">
+                      <input type="number" placeholder="Arrive time in minute" ng-model="Rtime" />
+                    </label>
+                </div>
+                <div class="button-bar ">
+                    <button class="button button-light" ng-click="reserve(people,Rtime)">Done</button>
+                    <button class="button button-light" ng-click="closeModal()">Cancel</button>
+                </div>
+            </div>
+        </ion-content>
+    </div>
+</script>
+<script id="Reservation.html" type="text/ng-template">
+    <div class="modal ">
+        <ion-header-bar>
+            <h1 class="title">Reservation</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div style="padding-left:10px;padding-right:10px;">
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="number" placeholder="How many people" ng-model="people" />
+                       
+                    </label>
+                    <label class="item item-input">
+                      <input type="number" placeholder="Arrive time in minute" ng-model="Rtime" />
+                    </label>
+                </div>
+                <div class="button-bar ">
+                    <button class="button button-light" ng-click="reserve(people,Rtime)">Done</button>
+                    <button class="button button-light" ng-click="closeModal()">Cancel</button>
+                </div>
+            </div>
+        </ion-content>
+    </div>
+</script>

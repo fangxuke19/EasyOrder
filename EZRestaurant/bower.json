@@ -1,0 +1,10 @@
+{
+  "name": "EZRestaurant",
+  "private": "true",
+  "devDependencies": {
+    "ionic": "driftyco/ionic-bower#1.0.0-rc.3"
+  },
+  "dependencies": {
+    "socket.io-client": "~1.3.5"
+  }
+}

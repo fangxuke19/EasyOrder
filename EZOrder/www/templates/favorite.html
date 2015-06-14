@@ -1,0 +1,13 @@
+<ion-view view-title="favorite">
+    <ion-content class="padding">
+        <div class="list card" ng-repeat="restaurant in restaurants">
+            <a class="item item-icon-left item-icon-right" href="#/tab/restaurant/{{restaurant.id}}">
+                <h2>{{restaurant.name}}</h2>
+                <h2>{{restaurant.type}}</h2>
+                <h2>{{restaurant.price}}</h2>
+                <h2>{{restaurant.description}}</h2>
+                <h2>{{restaurant.id}}</h2>
+            </a>
+        </div>
+    </ion-content>
+</ion-view>

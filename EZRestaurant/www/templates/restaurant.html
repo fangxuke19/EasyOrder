@@ -1,0 +1,117 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="  {{restaurant.name}}">
+    <ion-content class="padding">
+        <p>
+            <div class="list card">
+                <div class="item item-icon-left item-divider">
+                    <i class="icon ion-compose"></i> Basic Information
+                </div>
+                <a class="item item-icon-left" ng-click='openModal(0)'>
+                    <i class="icon ion-fork"></i> Name
+                    <span class="item-note">
+             <h2>{{restaurant.name}}</h2>
+          </span>
+                </a>
+                <a class="item item-icon-left" ng-click='openModal(1)'>
+                    <i class="icon ion-cash"></i> Average Cost
+                    <span class="item-note">
+             <h2>{{restaurant.price}}</h2>
+          </span>
+                </a>
+                <a class="item item-icon-left" ng-click='openMap()'>
+                    <i class="icon ion-ios-location"></i> address
+                    <span class="item-note">
+             <h2>{{restaurant.address}}</h2>
+          </span>
+                </a>
+                <a class="item item-icon-left" href="#tab/qrcode/{{restaurant.id}}">
+                    <i class="icon ion-qr-scanner"></i> QR Code
+                </a>
+            </div>
+            <div class="list card">
+                <div class="item item-icon-left item-divider">
+                    <i class="icon ion-compose"></i> Description
+                </div>
+                <a class="item item-body item-text-wrap" ng-click='openModal(2)'>
+                    <h3>{{restaurant.description}}</h3>
+                </a>
+            </div>
+            <div class="list card">
+                <a class="item item-icon-left" href="#tab/menu/{{restaurant.menu}}">
+                    <i class="icon ion-load-b"></i> Menu
+                </a>
+            </div>
+
+            <div>
+                <button class="button button-block button-positive" ng-click='logout()'>
+                    LOGOUT
+                </button>
+            </div>
+        </p>
+    </ion-content>
+</ion-view>
+<script id="changeNameModal.html" type="text/ng-template">
+    <div class="modal ">
+        <ion-header-bar>
+            <h1 class="title">Change Name</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div style="padding-left:10px;padding-right:10px;">
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="text" placeholder="new Name" ng-model="newName">
+                    </label>
+                </div>
+                <div class="button-bar ">
+                    <button class="button button-light" ng-click="changeName(newName)">Done</button>
+                    <button class="button button-light" ng-click="closeModal(0)">Cancel</button>
+                </div>
+            </div>
+        </ion-content>
+    </div>
+</script>
+<script id="changePriceModal.html" type="text/ng-template">
+    <div class="modal ">
+        <ion-header-bar>
+            <h1 class="title">Change Price</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div style="padding-left:10px;padding-right:10px;">
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <input type="number" placeholder="new Price" ng-model="newPrice">
+                    </label>
+                </div>
+                <div class="button-bar ">
+                    <button class="button button-light" ng-click="changePrice(newPrice)">Done</button>
+                    <button class="button button-light" ng-click="closeModal(1)">Cancel</button>
+                </div>
+            </div>
+        </ion-content>
+    </div>
+</script>
+<script id="changeDescriptionModal.html" type="text/ng-template">
+    <div class="modal ">
+        <ion-header-bar>
+            <h1 class="title">Change Descripthon</h1>
+        </ion-header-bar>
+        <ion-content>
+            <div style="padding-left:10px;padding-right:10px;">
+                <div class="list list-inset">
+                    <label class="item item-input">
+                        <textarea rows="4" placeholder="new Descripthon" ng-model="newDescripthon" />
+                    </label>
+                </div>
+                <div class="button-bar ">
+                    <button class="button button-light" ng-click="changeDescripthon(newDescripthon)">Done</button>
+                    <button class="button button-light" ng-click="closeModal(2)">Cancel</button>
+                </div>
+            </div>
+        </ion-content>
+    </div>
+</script>

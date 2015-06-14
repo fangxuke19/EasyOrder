@@ -1,0 +1,9 @@
+<ion-view view-title="Map" ng-init="init()">
+    <ion-content ng-controller="MapCtrl">
+        <ion-google-place placeholder="search address" ng-model="search_data.location"> </ion-google-place>
+        <div id="map" data-tap-disabled="true"></div>
+    </ion-content class="has-header has-subheader">
+    <ion-footer-bar class="bar-dark">
+        <a ng-click="centerOnMe()" class="button button-icon icon ion-navigate">Find Me</a>
+    </ion-footer-bar>
+</ion-view>

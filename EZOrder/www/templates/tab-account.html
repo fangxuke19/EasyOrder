@@ -1,0 +1,20 @@
+<ion-view view-title="Login">
+    <ion-content ng-controller="LoginCtrl">
+        <form ng-submit="login()">
+            <div class="list list-inset">
+                <label class="item item-input">
+                    <span class="input-label">email</span>
+                    <input type="text" ng-model="postData.email">
+                </label>
+                <label class="item item-input">
+                    <span class="input-label">Password</span>
+                    <input type="password" ng-model="postData.password">
+                </label>
+                <button class="button button-stable button-block" type="submit">login</button>
+            </div>
+            </from>
+            <p>
+                {{user}} {{token}}
+            </p>
+    </ion-content>
+</ion-view>

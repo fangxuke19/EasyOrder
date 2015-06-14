@@ -1,0 +1,39 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="Menu">
+    <ion-nav-buttons side="right">
+        <button class="button button-icon icon ion-android-add" ng-click="add()">
+        </button>
+    </ion-nav-buttons>
+    <div class="bar bar-subheader item-input-inset">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input type="search" placeholder="Search" ng-model="query">
+        </label>
+    </div>
+    <ion-content class="padding has-subheader">
+        <div class="list card">
+            <ion-list show-delete="shouldShowDelete" can-swipe="listCanSwipe">
+                <ion-item class="item item-thumbnail-left item" ng-repeat="dish in menu.dishes | filter:query" href="#tab/dish/{{dish.id}}">
+                    <img src="{{serverUrl}}/images/{{dish.image_urls[0]}}">
+                    <ion-delete-button class="ion-minus-circled" ng-click="delete($index)"></ion-delete-button>
+                    <h2>{{dish.name}}</h2>
+                    <h2>${{dish.price}}</h2>
+                    <div class="item-text-wrap">
+                        {{dish.description}}
+                    </div>
+                    <ion-option-button class="button-assertive" ng-click="delete($index)">
+                        Delete
+                    </ion-option-button>
+                </ion-item>
+            </ion-list>
+            <ion-toggle ng-model="shouldShowDelete">
+                Show Delete?
+            </ion-toggle>
+        </div>
+    </ion-content>
+</ion-view>
