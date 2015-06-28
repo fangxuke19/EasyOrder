@@ -11,11 +11,13 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
 
     }])
     .constant('CONFIG', {
-        serverUrl: "http://btxlzh.xicp.net:1337"
+        //serverUrl: "http://btxlzh.xicp.net:1337"
+        serverUrl: "http://localhost:1337"
     })
     .run(function($ionicPlatform, AccountService, $rootScope) {
         $ionicPlatform.ready(function() {
-            $rootScope.serverUrl = "http://btxlzh.xicp.net:1337";
+            //$rootScope.serverUrl = "http://btxlzh.xicp.net:1337"
+            $rootScope.serverUrl = "http://localhost:1337";
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)ionic 
             if (window.cordova && window.cordova.plugins && window.cordova.plugins.Keyboard) {

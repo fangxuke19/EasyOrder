@@ -1,0 +1,13 @@
+<ion-view view-title="Payment">
+    <ion-content>
+        <label class="text_amount">
+            <input id="amount" type="text" placeholder="金 额" ng-model='amount' />
+        </label>
+        <!-- <button class="button button-stable button-block" ng-click="pay('upmp_wap',amount)">银联WAP(upmp)</button>
+<button class="button button-stable button-block" ng-click="pay('upacp_wap')">银联WAP(upacp)</button>
+ -->
+        <button class="button button-stable button-block" ng-click="pay('alipay_wap',amount)">支付宝WAP</button>
+        <!--         <button class="button button-stable button-block" ng-click="pay('bfb_wap')">百付宝WAP</button>
+        <button class="button button-stable button-block" ng-click="pay('yeepay_wap')">易宝WAP</button> -->
+    </ion-content>
+</ion-view>

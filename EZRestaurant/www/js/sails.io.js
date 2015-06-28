@@ -4903,7 +4903,8 @@
 
             // Whether to automatically connect a socket and save it as `io.socket`.
             autoConnect: true,
-            url: 'http://btxlzh.xicp.net:1337',
+            //url: 'http://btxlzh.xicp.net:1337',
+            url: "http://localhost:1337",
             useCORSRouteToGetCookie: false,
             // The route (path) to hit to get a x-origin (CORS) cookie
             // (or true to use the default: '/__getcookie')

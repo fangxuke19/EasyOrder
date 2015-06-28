@@ -5,16 +5,18 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'localStorageServices', 'ngCordova', 'starter.uploadFile'])
+angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', 'starter.paymentService', 'localStorageServices', 'ngCordova', 'starter.uploadFile'])
     .config(['$httpProvider', function($httpProvider) {
         $httpProvider.defaults.withCredentials = true;
     }])
     .constant('CONFIG', {
-        serverUrl: "http://btxlzh.xicp.net:1337", //'http://btxlzh.xicp.net:1337'
+        //serverUrl: "http://btxlzh.xicp.net:1337", //'http://btxlzh.xicp.net:1337'
+        serverUrl: "http://localhost:1337",
         distance: 50
     })
     .run(function($ionicPlatform, AccountService, $rootScope) {
-        $rootScope.serverUrl = "http://btxlzh.xicp.net:1337";
+        //$rootScope.serverUrl = "http://btxlzh.xicp.net:1337";
+        $rootScope.serverUrl = "http://localhost:1337";
         $ionicPlatform.ready(function() {
             // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
             // for form inputs)
@@ -128,6 +130,31 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services', '
                     'tab-cart': {
                         templateUrl: 'templates/tab-cart.html',
                         controller: 'CartCtrl',
+                    }
+                }
+            })
+            .state('tab.checkout', {
+                url: '/cart/checkout',
+                views: {
+                    'tab-cart': {
+                        templateUrl: 'templates/Payment.html',
+                        controller: 'PaymentCtrl',
+                    }
+                }
+            })
+            .state('tab.success', {
+                url: '/cart/checkout/success',
+                views: {
+                    'tab-cart': {
+                        templateUrl: 'templates/success.html'
+                    }
+                }
+            })
+            .state('tab.cancel', {
+                url: '/cart/checkout/cancel',
+                views: {
+                    'tab-cart': {
+                        templateUrl: 'templates/cancel.html'
                     }
                 }
             })
